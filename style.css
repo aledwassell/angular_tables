@@ -1,7 +1,4 @@
 /* Styles go here */
-
-
-
 .ui-grid-filter-input,
 .ui-grid-filter-select {
     font-family: 'Lato', sans-serif, 'FontAwesome' !important;
@@ -43,3 +40,14 @@
 .ui-grid a{
     margin-left: 8px;
 }
+
+.ui-grid-cell, .ui-grid-row {
+    height: 40px !important;
+    padding: px;
+}
+
+.ui-grid-cell {
+    padding: 5px 1px;
+}
+
+/*sounds table height is about 57px*/
