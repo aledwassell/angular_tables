@@ -1,5 +1,7 @@
 /* Styles go here */
 
+
+
 .ui-grid-filter-input,
 .ui-grid-filter-select {
     font-family: 'Lato', sans-serif, 'FontAwesome' !important;
@@ -36,4 +38,12 @@
 
 .save-floppy::before {
     content: "\f0c7";
+}
+
+.ui-grid a{
+    margin-left: 8px;
+}
+
+.ui-grid-render-container-body .ui-grid-viewport{
+    height: 500px;
 }
