@@ -8,7 +8,7 @@ angular.module('app', ['ngRoute', 'ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pa
             templateUrl: 'pages/home.html',
             controller: 'mainCtrl'
         })
-        .when('/#users', {
+        .when('/#%2Fusers', {
             templateUrl: 'pages/users.html',
             controller: 'usersCtrl'
         })
