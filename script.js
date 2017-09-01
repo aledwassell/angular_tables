@@ -23,6 +23,7 @@ angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 
                 {
                     field: 'name',
                     dispalyName: 'Name',
+                    enableSorting: true,
                     enableCellEdit: false,
                     minWidth: '200',
                     width: '*',
@@ -34,6 +35,7 @@ angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 
                 {
                     field: 'email',
                     dispalyName: 'Email',
+                    enableSorting: true,
                     enableCellEdit: false,
                     filter: {
                         placeholder: 'Search'
