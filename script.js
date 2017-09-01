@@ -1,10 +1,13 @@
-angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination'])
+angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 'ui.grid.resizeColumns'])
     .controller('MainCtrl', ['$scope', '$http', 'uiGridConstants', function ($scope, $http, uiGrigConstants) {
 
         $scope.gridOptions = {
+            paginationPageSizes: [25, 50, 75],
+            paginationPageSize: 25,
             fastWatch: true,
             enableSorting: true,
             enableFiltering: true,
+            enableColumnResizing: true,
             onRegisterApi: function (gridApi) {
                 $scope.grid2Api = gridApi;
             },
@@ -29,7 +32,8 @@ angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination'])
                 {
                     field: 'name',
                     dispalyName: 'Name',
-                    width: '200',
+                    minWidth: '200',
+                    width: '*',
                     filter: {
                         placeholder: 'Search'
                     }
@@ -41,12 +45,14 @@ angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination'])
                         placeholder: 'Search'
                     },
                     headerCellClass: $scope.highlightFilteredHeader,
-                    width: '200'
+                    minWidth: '200',
+                    width: '*'
         },
                 {
                     field: 'body',
                     dispalyName: 'Body',
-                    width: '200',
+                    width: '*',
+                    minWidth: '200',
                     filter: {
                         placeholder: 'Search'
                     }
@@ -54,7 +60,7 @@ angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination'])
                 {
                     field: 'play',
                     displayName: 'Play Sound File',
-                    width: '300',
+                    minWidth: '300',
                     enableSorting: false,
                     enableFiltering: false,
                     cellTemplate: '' +
@@ -70,8 +76,6 @@ angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination'])
 
         }
       ],
-            paginationPageSizes: [25, 50, 75],
-            paginationPageSize: 25,
         }
 
         $http({
