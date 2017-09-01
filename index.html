@@ -1,6 +1,7 @@
 <!doctype html>
 <html ng-app="app">
-  <head>
+
+<head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-touch.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-animate.js"></script>
@@ -13,10 +14,18 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <script src="script.js"></script>
     <link rel="stylesheet" href="style.css" title="" type="" />
-  </head>
-  <body>
+</head>
+
+<body>
     <div ng-controller="MainCtrl">
-      <div id="grid1" ui-grid="gridOptions" class="myGrid" ui-grid-resize-columns ui-grid-edit></div>
+        <div id="grid1" ui-grid="gridOptions" class="myGrid" ui-grid-resize-columns ui-grid-edit>
+            <div class="no-data" ng-hide="gridOptions.data.length && !loading">
+               <div class"msg">
+                   <span>Loading Data..</span>               
+               </div>
+            </div>
+        </div>
     </div>
-  </body>
+</body>
+
 </html>

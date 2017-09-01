@@ -1,9 +1,17 @@
 angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 'ui.grid.resizeColumns', 'ui.grid.edit'])
     .controller('MainCtrl', ['$scope', '$http', 'uiGridConstants', function ($scope, $http, uiGrigConstants) {
-
+        
+        var paginationOptions = {
+            pageNumber: 1,
+            pageSize: 25,
+            sort: null
+        };
+        
         $scope.gridOptions = {
             paginationPageSizes: [25, 50, 75],
             paginationPageSize: 25,
+            useExternalPagination: true,
+            useExternalSorting: true,
             fastWatch: true,
             enableSorting: true,
             enableFiltering: true,
@@ -66,7 +74,7 @@ angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 
                 {
                     field: 'play',
                     displayName: 'Play Sound File',
-                    minWidth: '300',
+                    width: '300',
                     enableSorting: false,
                     enableCellEdit: false,
                     enableFiltering: false,
@@ -85,12 +93,21 @@ angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 
         }
       ],
         }
-
-        $http({
+        
+        init();
+        
+        function init(){
+            $scope.loading = true;
+            
+            $http({
                 method: 'GET',
                 url: 'https://jsonplaceholder.typicode.com/comments'
             })
             .then(function (data) {
                 $scope.gridOptions.data = data.data;
-            });
+            })
+            .finally(function() {$scope.loading = false;})
+        }
+        
+        
 }]);
