@@ -6,12 +6,12 @@ angular.module('app', ['ngRoute', 'ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pa
             controller: 'mainCtrl'
         })
     
-        .when('/users', {
+        .when('/#users', {
             templateUrl: 'pages/users.html',
             controller: 'usersCtrl'
         })
     
-        .when('/logs', {
+        .when('/#logs', {
             templateUrl: 'pages/logs.html',
             controller: 'logsCtrl'
         });
