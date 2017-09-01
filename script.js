@@ -22,24 +22,6 @@ angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 
             columnDefs: [
       // post id, id, name, email, body
                 {
-                    field: 'postId',
-                    dispalyName: 'Post Id',
-                    enableCellEdit: false,
-                    width: '120',
-                    filter: {
-                        placeholder: 'Search'
-                    },
-        },
-                {
-                    field: 'id',
-                    dispalyName: 'Id',
-                    enableCellEdit: false,
-                    width: '120',
-                    filter: {
-                        placeholder: 'Search'
-                    }
-        },
-                {
                     field: 'name',
                     dispalyName: 'Name',
                     enableCellEdit: false,
@@ -72,23 +54,16 @@ angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 
                     }
         },
                 {
-                    field: 'play',
-                    displayName: 'Play Sound File',
-                    width: '300',
-                    enableSorting: false,
-                    enableCellEdit: false,
-                    enableFiltering: false,
-                    cellTemplate: '' +
-                        '<div style="height: 30px;"><audio controls controlslist="nodownload" style="height: 30px; width 20px;"></audio></div>'
-        },
-                {
                     field: 'actions',
                     displayName: 'Actions',
                     enableCellEdit: false,
-                    width: '80',
+                    width: '380',
                     enableSorting: false,
                     enableFiltering: false,
-                    cellTemplate: '<a class="download"></a><a class="save-floppy"></a>'
+                    cellTemplate: '' +
+                        '<div style="height: 30px;"><audio controls controlslist="nodownload" style="height: 30px; width 20px;"></audio>' +
+                            '<a class="download"></a><a class="save-floppy"></a>' +
+                        '</div>'
 
         }
       ],
