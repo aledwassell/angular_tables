@@ -1,0 +1,9 @@
+<div ng-controller="usersCtrl">
+    <div id="grid1" ui-grid="gridOptions" class="myGrid" ui-grid-resize-columns ui-grid-edit>
+        <div class="no-data" ng-hide="gridOptions.data.length && !loading">
+            <div class "msg">
+                <span>Loading Data..</span>
+            </div>
+        </div>
+    </div>
+</div>
