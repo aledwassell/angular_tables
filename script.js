@@ -30,7 +30,7 @@ angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 
                     filter: {
                         placeholder: 'Search'
                     },
-                    headerTemplate:'<i class="glyphicon glyphicon-triangle-bottom"i area-hidden="true"></i>'
+                    headerTemplate:'<i class="glyphicon glyphicon-triangle-bottom" area-hidden="true"></i>'
         },
                 {
                     field: 'email',
@@ -65,7 +65,6 @@ angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 
                         '<div class="ui-grid-cell-actions"><audio controls controlslist="nodownload" style="height: 30px; width 20px;"></audio>' +
                             '<a class="download"></a><a class="save-floppy"></a>' +
                         '</div>'
-
         }
       ],
         }
