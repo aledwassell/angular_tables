@@ -1,4 +1,9 @@
 /* Styles go here */
+
+.myGrid{
+    height: 600px;
+}
+
 .ui-grid-filter-input,
 .ui-grid-filter-select {
     font-family: 'Lato', sans-serif, 'FontAwesome' !important;

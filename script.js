@@ -1,4 +1,4 @@
-angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 'ui.grid.resizeColumns'])
+angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 'ui.grid.resizeColumns', 'ui.grid.edit'])
     .controller('MainCtrl', ['$scope', '$http', 'uiGridConstants', function ($scope, $http, uiGrigConstants) {
 
         $scope.gridOptions = {
@@ -16,6 +16,7 @@ angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 
                 {
                     field: 'postId',
                     dispalyName: 'Post Id',
+                    enableCellEdit: false,
                     width: '120',
                     filter: {
                         placeholder: 'Search'
@@ -24,6 +25,7 @@ angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 
                 {
                     field: 'id',
                     dispalyName: 'Id',
+                    enableCellEdit: false,
                     width: '120',
                     filter: {
                         placeholder: 'Search'
@@ -32,6 +34,7 @@ angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 
                 {
                     field: 'name',
                     dispalyName: 'Name',
+                    enableCellEdit: false,
                     minWidth: '200',
                     width: '*',
                     filter: {
@@ -41,6 +44,7 @@ angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 
                 {
                     field: 'email',
                     dispalyName: 'Email',
+                    enableCellEdit: false,
                     filter: {
                         placeholder: 'Search'
                     },
@@ -50,9 +54,11 @@ angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 
         },
                 {
                     field: 'body',
-                    dispalyName: 'Body',
+                    dispalyName: 'Description',
                     width: '*',
                     minWidth: '200',
+                    enableCellEdit: true,
+                    type: 'text',
                     filter: {
                         placeholder: 'Search'
                     }
@@ -62,6 +68,7 @@ angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 
                     displayName: 'Play Sound File',
                     minWidth: '300',
                     enableSorting: false,
+                    enableCellEdit: false,
                     enableFiltering: false,
                     cellTemplate: '' +
                         '<div style="height: 30px;"><audio controls controlslist="nodownload" style="height: 30px; width 20px;"></audio></div>'
@@ -69,6 +76,7 @@ angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 
                 {
                     field: 'actions',
                     displayName: 'Actions',
+                    enableCellEdit: false,
                     width: '80',
                     enableSorting: false,
                     enableFiltering: false,
