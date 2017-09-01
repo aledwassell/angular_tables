@@ -1,20 +1,17 @@
 angular.module('app', ['ngRoute', 'ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 'ui.grid.resizeColumns', 'ui.grid.edit'])
+
     .config(function($routeProvider){
+    
         $routeProvider
+        
         .when('/', {
             templateUrl: 'pages/home.html',
             controller: 'mainCtrl'
         })
-    
         .when('/#users', {
             templateUrl: 'pages/users.html',
             controller: 'usersCtrl'
         })
-    
-        .when('/#logs', {
-            templateUrl: 'pages/logs.html',
-            controller: 'logsCtrl'
-        });
     })
     .controller('mainCtrl', ['$scope', function($scope){
         $scope.message = 'Home message'
