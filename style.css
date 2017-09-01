@@ -26,21 +26,7 @@
     transition: border-color ease-in-out.15s, box-shadow ease-in-out .15s;
 }
 
-.download::before,
-.save-floppy::before {
-    font-family: 'Lato', sans-serif, FontAwesome;
-    color: inherit;
-    font-size: 2em;
-    text-align: center;
-}
 
-.download::before {
-    content: "\f0ed";
-}
-
-.save-floppy::before {
-    content: "\f0c7";
-}
 
 .ui-grid-top-panel {
     position: relative;
@@ -64,12 +50,12 @@
     border: none;
 }
 
-.ui-grid-cell-contents{
-    padding: 15px 10px
+.ui-grid-column-menu-button {
+    margin-top: 15px !important;
 }
 
-.ui-grid-cell {
-    border: none;
+.ui-grid-cell-contents{
+    padding: 15px 10px
 }
 
 /*actions column rules*/
@@ -78,9 +64,31 @@
     padding: 15px 0px;
 }
 
+.ui-grid-cell{
+    border: none;
+}
+
 /*row background color rules*/
 .ui-grid-row:nth-child(even) .ui-grid-cell, .ui-grid-row:nth-child(odd) .ui-grid-cell{
     background-color: #fff;
 }
 
 /*sounds table height is about 57px*/
+
+/*actions rules */
+
+.download::before,
+.save-floppy::before {
+    font-family: 'Lato', sans-serif, FontAwesome;
+    color: inherit;
+    font-size: 2em;
+    text-align: center;
+}
+
+.download::before {
+    content: "\f0ed";
+}
+
+.save-floppy::before {
+    content: "\f0c7";
+}

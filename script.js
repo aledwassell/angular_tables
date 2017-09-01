@@ -29,7 +29,8 @@ angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 
                     width: '*',
                     filter: {
                         placeholder: 'Search'
-                    }
+                    },
+                    headerTemplate:'<i class="glyphicon glyphicon-triangle-bottom"i area-hidden="true"></i>'
         },
                 {
                     field: 'email',
