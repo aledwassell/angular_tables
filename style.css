@@ -43,12 +43,13 @@
 }
 
 .ui-grid-top-panel {
-  position: relative;
-  overflow: hidden;
-  font-weight: bold;
-  background: #844e93;
-  background-clip: padding-box;
-    color: aliceblue
+    position: relative;
+    overflow: hidden;
+    font-weight: bold;
+    background: #844e93;
+    background-clip: padding-box;
+    color: aliceblue;
+    padding-bottom: 10px;
 }
 
 .ui-grid a{
@@ -56,39 +57,30 @@
 }
 
 .ui-grid-cell, .ui-grid-row {
-    height: 40px !important;
-    padding: px;
+    height: 50px !important;
+}
+
+.ui-grid-header-cell{
+    border: none;
+}
+
+.ui-grid-cell-contents{
+    padding: 15px 10px
 }
 
 .ui-grid-cell {
-    padding: 5px 1px;
-}
-
-.grid-msg-overlay{
-    position: absolute;
-    top: 0;
-    bottom: ;
-    width: 100%;
-    backface-visibility: rgba(0,0,0,0.4);
-}
-
-.grid-msg-overlay .msg{
-    opacity: 1;
-    position: absolute;
-    top: 20%;
-    left: 20%;
-    widows: 60%;
-    height: 50%;
-    background-color: #eee;
-    border-radius: 5px;
     border: none;
-    text-align: center;
-    display: table
 }
 
-.grid-msg-overlay .msg span {
-  display: table-cell;
-  vertical-align: middle;
+/*actions column rules*/
+.ui-grid-cell-actions{
+    height: 30px;
+    padding: 15px 0px;
+}
+
+/*row background color rules*/
+.ui-grid-row:nth-child(even) .ui-grid-cell, .ui-grid-row:nth-child(odd) .ui-grid-cell{
+    background-color: #fff;
 }
 
 /*sounds table height is about 57px*/
