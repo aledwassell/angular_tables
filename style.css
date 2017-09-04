@@ -61,11 +61,9 @@
     margin-top: 15px !important;
 }
 
-
-
-.ui-grid-cell-contents{
+.ui-grid-cell-contents h5{
     padding: 10px 10px;
-    line-height: 28px;
+    text-overflow: ellipsis !important;
 }
 
 /*actions column rules*/
@@ -116,9 +114,21 @@
     content: "\f0c7";
 }
 
+.delete::before {
+    content: "\f014";
+    color: inherit;
+    font-family: 'Lato', sans-serif, FontAwesome;
+    font-size: 2em;
+    text-align: center;
+}
 
-
-
+.delete:hover::before, #delete:focus::before {
+    content: "\f00d";
+    font-family: 'Lato', sans-serif, FontAwesome;
+    color: #000;
+    font-size: 2em;
+    text-align: center;
+}
 
 /*
 

@@ -19,6 +19,7 @@ angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 
                     dispalyName: 'Name',
                     enableSorting: true,
                     enableCellEdit: false,
+                    cellTemplate: '<div class="ui-grid-cell-contents"><h5>{{ COL_FIELD }}</h5></div>',
                     minWidth: '200',
                     width: '*',
                     filter: {
@@ -43,6 +44,7 @@ angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 
                     width: '*',
                     minWidth: '200',
                     enableCellEdit: false,
+                    cellTemplate: '<div class="ui-grid-cell-contents"><h5>{{ COL_FIELD }}</h5></div>',
                     type: 'text',
                     filter: {
                         placeholder: 'Search'
@@ -52,14 +54,15 @@ angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 
                     field: 'actions',
                     displayName: 'Actions',
                     enableCellEdit: false,
-                    width: '380',
+                    width: '400',
                     enableSorting: false,
                     enableFiltering: false,
                     cellTemplate: '' +
                         '<div class="ui-grid-cell-actions">' +
+                            '<a class="download">' +
+                            '</a><a class="save-floppy"></a>' +
                             '<audio controls controlslist="nodownload"></audio>' +
-                            '<a class="fa fa-cloud-download fa-2x">' +
-                            '</a><a class="fa fa-save fa-2x"></a>' +
+                            '<a class="delete" alt="Delete"></a>' +
                         '</div>'
 
         }
@@ -86,7 +89,7 @@ angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 
 .controller('secondCtrl', ['$scope', '$http', 'uiGridConstants', function ($scope, $http, uiGrigConstants) {
         $scope.gridOptions02 = {
             paginationPageSizes: [5, 10, 15, 20, 25, 30],
-            paginationPageSize: 5,
+            paginationPageSize: 10,
             useExternalSorting: true,
             enableSorting: true,
             enableColumnResizing: true,
