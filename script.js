@@ -4,7 +4,8 @@ angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 
             paginationPageSizes: [5, 10, 15],
             paginationPageSize: 5,
             useExternalSorting: true,
-            footerTemplate: '<h1>Hello world</h1>',
+            showGridFooter: true,
+            gridFooterTemplate: 'footerTemplate.html',
             enableSorting: true,
             enableFiltering: true,
             enableColumnResizing: true,
@@ -22,18 +23,17 @@ angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 
                     width: '*',
                     filter: {
                         placeholder: 'Search'
-                    },
-                    headerTemplate:'<i class="glyphicon glyphicon-triangle-bottom"i area-hidden="true"></i>'
+                    }
         },
                 {
                     field: 'email',
                     dispalyName: 'Email',
                     enableSorting: true,
                     enableCellEdit: false,
+                    cellTemplate: 'inputTemplate.html',
                     filter: {
                         placeholder: 'Search'
                     },
-                    headerCellClass: $scope.highlightFilteredHeader,
                     minWidth: '200',
                     width: '*'
         },
@@ -42,7 +42,7 @@ angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 
                     dispalyName: 'Description',
                     width: '*',
                     minWidth: '200',
-                    enableCellEdit: true,
+                    enableCellEdit: false,
                     type: 'text',
                     filter: {
                         placeholder: 'Search'
@@ -85,7 +85,7 @@ angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 
 }])
 .controller('secondCtrl', ['$scope', '$http', 'uiGridConstants', function ($scope, $http, uiGrigConstants) {
         $scope.gridOptions02 = {
-            paginationPageSizes: [5, 10, 15],
+            paginationPageSizes: [5, 10, 15, 20, 25, 30],
             paginationPageSize: 5,
             useExternalSorting: true,
             enableSorting: true,
@@ -97,52 +97,52 @@ angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 
                 {
                     field: 'call_start',
                     displayName: 'Start',
-                    minWidth: '100',
+                    minWidth: '150',
                     width: '*'
                 }, {
                     field: 'call_end',
                     displayName: 'End',
-                    minWidth: '100',
+                    minWidth: '150',
                     width: '*'
                 }, {
                     field: 'call_target_type',
                     displayName: 'In to',
-                    minWidth: '100',
+                    minWidth: '150',
                     width: '*'
                 }, {
                     field: 'call_out_type',
                     displayName: 'Out to',
-                    minWidth: '100',
+                    minWidth: '150',
                     width: '*'
                 }, {
                     field: 'call_caller_id',
                     displayName: 'Caller number',
-                    minWidth: '100',
+                    minWidth: '150',
                     width: '*'
                 }, {
                     field: 'ivr_dnis',
                     displayName: 'Called number',
-                    minWidth: '100',
+                    minWidth: '150',
                     width: '*'
                 }, {
                     field: 'ivr_number_type',
                     displayName: 'Called number type',
-                    minWidth: '100',
+                    minWidth: '150',
                     width: '*'
                 }, {
                     field: 'call_recording_internal',
                     displayName: 'In system recorded',
-                    minWidth: '100',
+                    minWidth: '150',
                     width: '*'
                 }, {
                     field: 'call_recording_external',
                     displayName: 'Outbound call recorded',
-                    minWidth: '100',
+                    minWidth: '150',
                     width: '*'
                 }, {
                     field: 'call_billusec',
                     displayName: "Duration HH:MM:SS:ss",
-                    minWidth: '100',
+                    minWidth: '150',
                     width: '*'
                 }
             ],
