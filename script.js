@@ -1,17 +1,10 @@
 angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 'ui.grid.resizeColumns', 'ui.grid.edit'])
-    .controller('MainCtrl', ['$scope', '$http', 'uiGridConstants', function ($scope, $http, uiGrigConstants) {
-        var paginationOptions = {
-            pageNumber: 1,
-            pageSize: 25,
-            sort: null
-        };
-        
+    .controller('mainCtrl', ['$scope', '$http', 'uiGridConstants', function ($scope, $http, uiGrigConstants) {
         $scope.gridOptions = {
-            paginationPageSizes: [25, 50, 75],
-            paginationPageSize: 25,
-            useExternalPagination: true,
+            paginationPageSizes: [5, 10, 15],
+            paginationPageSize: 5,
             useExternalSorting: true,
-            fastWatch: true,
+            footerTemplate: '<h1>Hello world</h1>',
             enableSorting: true,
             enableFiltering: true,
             enableColumnResizing: true,
@@ -63,8 +56,10 @@ angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 
                     enableSorting: false,
                     enableFiltering: false,
                     cellTemplate: '' +
-                        '<div class="ui-grid-cell-actions"><audio controls controlslist="nodownload" style="height: 30px; width 20px;"></audio>' +
-                            '<a class="download"></a><a class="save-floppy"></a>' +
+                        '<div class="ui-grid-cell-actions">' +
+                            '<audio controls controlslist="nodownload"></audio>' +
+                            '<a class="fa fa-cloud-download fa-2x">' +
+                            '</a><a class="fa fa-save fa-2x"></a>' +
                         '</div>'
 
         }
@@ -87,4 +82,87 @@ angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 
         }
         
         
+}])
+.controller('secondCtrl', ['$scope', '$http', 'uiGridConstants', function ($scope, $http, uiGrigConstants) {
+        $scope.gridOptions02 = {
+            paginationPageSizes: [5, 10, 15],
+            paginationPageSize: 5,
+            useExternalSorting: true,
+            enableSorting: true,
+            enableColumnResizing: true,
+            onRegisterApi: function (gridApi) {
+                $scope.grid2Api = gridApi;
+            },
+             columnDefs: [
+                {
+                    field: 'call_start',
+                    displayName: 'Start',
+                    minWidth: '100',
+                    width: '*'
+                }, {
+                    field: 'call_end',
+                    displayName: 'End',
+                    minWidth: '100',
+                    width: '*'
+                }, {
+                    field: 'call_target_type',
+                    displayName: 'In to',
+                    minWidth: '100',
+                    width: '*'
+                }, {
+                    field: 'call_out_type',
+                    displayName: 'Out to',
+                    minWidth: '100',
+                    width: '*'
+                }, {
+                    field: 'call_caller_id',
+                    displayName: 'Caller number',
+                    minWidth: '100',
+                    width: '*'
+                }, {
+                    field: 'ivr_dnis',
+                    displayName: 'Called number',
+                    minWidth: '100',
+                    width: '*'
+                }, {
+                    field: 'ivr_number_type',
+                    displayName: 'Called number type',
+                    minWidth: '100',
+                    width: '*'
+                }, {
+                    field: 'call_recording_internal',
+                    displayName: 'In system recorded',
+                    minWidth: '100',
+                    width: '*'
+                }, {
+                    field: 'call_recording_external',
+                    displayName: 'Outbound call recorded',
+                    minWidth: '100',
+                    width: '*'
+                }, {
+                    field: 'call_billusec',
+                    displayName: "Duration HH:MM:SS:ss",
+                    minWidth: '100',
+                    width: '*'
+                }
+            ],
+        }
+        
+        init();
+        
+        function init(){
+            $scope.loading = true;
+            
+            $http({
+                method: 'GET',
+                url: 'data.json'
+            })
+            .then(function (data) {
+                $scope.gridOptions02.data = data.data;
+            })
+            .finally(function() {$scope.loading = false;})
+        }
+        
+        
 }]);
+

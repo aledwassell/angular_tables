@@ -38,34 +38,51 @@
     padding-bottom: 10px;
 }
 
-.ui-grid a{
-    margin-left: 8px;
-}
-
 .ui-grid-cell, .ui-grid-row {
     height: 50px !important;
 }
 
 .ui-grid-header-cell{
-    border: none;
+    border: none !important;
 }
 
+/*Removes border top right, after the last column header*/
+.ui-grid-header-cell:last-child, .ui-grid-column-resizer.right{
+    border: none !important;
+}
+
+/*Rules for the down arrow column header*/
 .ui-grid-column-menu-button {
     margin-top: 15px !important;
 }
 
+
+
 .ui-grid-cell-contents{
-    padding: 15px 10px
+    padding: 15px 10px;
 }
 
 /*actions column rules*/
+.ui-grid-cell-actions a{
+    margin: 4px 0px 4px 8px;
+}
+
 .ui-grid-cell-actions{
-    height: 30px;
-    padding: 15px 0px;
+    height: 50px;
+    padding: 10px 0px !important;
+    box-sizing: border-box;
+}
+
+.ui-grid-cell-actions div{
+    display: inline;
+    box-sizing: border-box;
+    height: 32px;
 }
 
 .ui-grid-cell{
-    border: none;
+    border-left: none !important;
+    border-right: none !important; 
+    border-bottom: 1px solid #ddd !important;
 }
 
 /*row background color rules*/
