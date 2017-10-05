@@ -61,9 +61,13 @@
     margin-top: 15px !important;
 }
 
-.ui-grid-cell-contents h5{
-    padding: 10px 10px;
+.ui-grid-cell-contents{
+    padding: 15px 10px;
     text-overflow: ellipsis !important;
+}
+
+.ui-grid-cell-contents-input{
+    padding: -10px 10px;
 }
 
 /*actions column rules*/

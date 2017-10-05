@@ -19,7 +19,6 @@ angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 
                     dispalyName: 'Name',
                     enableSorting: true,
                     enableCellEdit: false,
-                    cellTemplate: '<div class="ui-grid-cell-contents"><h5>{{ COL_FIELD }}</h5></div>',
                     minWidth: '200',
                     width: '*',
                     filter: {
@@ -31,6 +30,7 @@ angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 
                     dispalyName: 'Email',
                     enableSorting: true,
                     enableCellEdit: false,
+                    cellClass: 'ui-grid-cell-contents-input',
                     cellTemplate: 'inputTemplate.html',
                     filter: {
                         placeholder: 'Search'
@@ -44,7 +44,6 @@ angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 
                     width: '*',
                     minWidth: '200',
                     enableCellEdit: false,
-                    cellTemplate: '<div class="ui-grid-cell-contents"><h5>{{ COL_FIELD }}</h5></div>',
                     type: 'text',
                     filter: {
                         placeholder: 'Search'
