@@ -82,7 +82,6 @@ body{
 }
 
 .ui-grid-cell-actions{
-    height: 50px;
     padding: 10px 0px !important;
     box-sizing: border-box;
 }

@@ -1,9 +1,9 @@
 angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 'ui.grid.resizeColumns', 'ui.grid.edit', 'ui.grid.selection'])
     .controller('mainCtrl', ['$scope', '$http', 'uiGridConstants', function ($scope, $http, uiGrigConstants) {
         $scope.gridOptions = {
-            paginationPageSizes: [5, 10, 15],
+            paginationPageSizes: [5, 15, 25, 50, 75],
             paginationPageSize: 5,
-            rowHeight: 70,
+            rowHeight: 50,
             useExternalSorting: true,
             showGridFooter: true,
             gridFooterTemplate: 'footerTemplate.html',
@@ -16,67 +16,54 @@ angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 
             columnDefs: [
       // post id, id, name, email, body
                 {
-                    field: 'name',
-                    dispalyName: 'Name',
+                    field: 'email',
+                    dispalyName: 'Date & Time',
                     enableSorting: true,
                     enableCellEdit: false,
-                    minWidth: '200',
+                    minWidth: "170",
                     width: '*',
                     filter: {
                         placeholder: 'Search'
                     }
                 },
                 {
-                    field: 'Fruits',
-                    dispalyName: 'Fruit',
+                    field: 'name',
+                    dispalyName: 'IVR Name',
                     enableSorting: true,
                     enableCellEdit: false,
-                    rowHeight: 250,
                     filter: {
-                        options: [ { value: 'banana', label: 'Banana' }, { value: 'coconut', label: 'Coconut' }, { value: 'peach', label: 'Peach'}]
+                        placeholder: 'Search'
                     },
-                    minWidth: '200',
-                    width: '*'
+                    minWidth: "170",
+                    width: '*',
                 },
                 {
-                    field: 'email',
-                    dispalyName: 'Email',
+                    field: 'id',
+                    dispalyName: 'Object id',
                     enableSorting: true,
                     enableCellEdit: false,
                     cellClass: 'ui-grid-cell-contents-input',
-                    cellTemplate: 'inputTemplate.html',
                     filter: {
                         placeholder: 'Search'
                     },
-                    minWidth: '200',
-                    width: '*'
-                },
-                {
-                    field: 'body',
-                    dispalyName: 'Description',
+                    minWidth: "170",
                     width: '*',
-                    minWidth: '200',
-                    enableCellEdit: false,
-                    type: 'text',
-                    filter: {
-                        placeholder: 'Search'
-                    }
                 },
                 {
                     field: 'actions',
                     displayName: 'Actions',
-                    enableCellEdit: false,
-                    enableColumnMenu: false,
-                    width: '400',
-                    enableSorting: false,
                     enableFiltering: false,
+                    enableSorting: false,
+                    enableColumnMenu: false,
+                     minWidth: "250",
+                    maxWidth: '250',
                     cellTemplate: '' +
-                        '<div class="ui-grid-cell-actions">' +
-                            '<a class="download">' +
-                            '</a><a class="save-floppy"></a>' +
-                            '<audio controls controlslist="nodownload"></audio>' +
-                            '<a class="delete" alt="Delete"></a>' +
-                        '</div>'
+                    '<div class="form-inline">' +
+                        '<div class="form-group">' +
+                            '<audio controls style="width: 200px;" type="audio/mp3" preload="none" controlslist="nodownload"></audio>' +
+                        '</div>'+
+                    '<a class="download"></a>' +
+                    '</div>'
 
         }
       ],
@@ -99,89 +86,89 @@ angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 
         
         
 }])
-.controller('secondCtrl', ['$scope', '$http', 'uiGridConstants', function ($scope, $http, uiGrigConstants) {
-        $scope.gridOptions02 = {
-            paginationPageSizes: [5, 10, 15, 20, 25, 30],
-            paginationPageSize: 10,
-            useExternalSorting: true,
-            enableSorting: true,
-            enableCellEditOnFocus: true,
-            enableColumnMenus: false,
-            enableColumnResizing: true,
-            onRegisterApi: function (gridApi) {
-                $scope.grid2Api = gridApi;
-            },
-             columnDefs: [
-                {
-                    field: 'call_start',
-                    displayName: 'Start',
-                    minWidth: '150',
-                    width: '*'
-                }, {
-                    field: 'call_end',
-                    displayName: 'End',
-                    minWidth: '150',
-                    width: '*'
-                }, {
-                    field: 'call_target_type',
-                    displayName: 'In to',
-                    minWidth: '150',
-                    width: '*'
-                }, {
-                    field: 'call_out_type',
-                    displayName: 'Out to',
-                    minWidth: '150',
-                    
-                    width: '*'
-                }, {
-                    field: 'call_caller_id',
-                    displayName: 'Caller number',
-                    minWidth: '150',
-                    width: '*'
-                }, {
-                    field: 'ivr_dnis',
-                    displayName: 'Called number',
-                    minWidth: '150',
-                    width: '*'
-                }, {
-                    field: 'ivr_number_type',
-                    displayName: 'Called number type',
-                    minWidth: '150',
-                    width: '*'
-                }, {
-                    field: 'call_recording_internal',
-                    displayName: 'In system recorded',
-                    minWidth: '150',
-                    width: '*'
-                }, {
-                    field: 'call_recording_external',
-                    displayName: 'Outbound call recorded',
-                    minWidth: '150',
-                    width: '*'
-                }, {
-                    field: 'call_billusec',
-                    displayName: "Duration HH:MM:SS:ss",
-                    minWidth: '150',
-                    width: '*'
-                }
-            ],
-        }
-        
-        init();
-        
-        function init(){
-            $scope.loading = true;
-            
-            $http({
-                method: 'GET',
-                url: 'data.json'
-            })
-            .then(function (data) {
-                $scope.gridOptions02.data = data.data;
-            })
-            .finally(function() {$scope.loading = false;})
-        }
-        
-        
-}]);
+//.controller('secondCtrl', ['$scope', '$http', 'uiGridConstants', function ($scope, $http, uiGrigConstants) {
+//        $scope.gridOptions02 = {
+//            paginationPageSizes: [5, 10, 15, 20, 25, 30],
+//            paginationPageSize: 10,
+//            useExternalSorting: true,
+//            enableSorting: true,
+//            enableCellEditOnFocus: true,
+//            enableColumnMenus: false,
+//            enableColumnResizing: true,
+//            onRegisterApi: function (gridApi) {
+//                $scope.grid2Api = gridApi;
+//            },
+//             columnDefs: [
+//                {
+//                    field: 'call_start',
+//                    displayName: 'Start',
+//                    minWidth: '150',
+//                    width: '*'
+//                }, {
+//                    field: 'call_end',
+//                    displayName: 'End',
+//                    minWidth: '150',
+//                    width: '*'
+//                }, {
+//                    field: 'call_target_type',
+//                    displayName: 'In to',
+//                    minWidth: '150',
+//                    width: '*'
+//                }, {
+//                    field: 'call_out_type',
+//                    displayName: 'Out to',
+//                    minWidth: '150',
+//                    
+//                    width: '*'
+//                }, {
+//                    field: 'call_caller_id',
+//                    displayName: 'Caller number',
+//                    minWidth: '150',
+//                    width: '*'
+//                }, {
+//                    field: 'ivr_dnis',
+//                    displayName: 'Called number',
+//                    minWidth: '150',
+//                    width: '*'
+//                }, {
+//                    field: 'ivr_number_type',
+//                    displayName: 'Called number type',
+//                    minWidth: '150',
+//                    width: '*'
+//                }, {
+//                    field: 'call_recording_internal',
+//                    displayName: 'In system recorded',
+//                    minWidth: '150',
+//                    width: '*'
+//                }, {
+//                    field: 'call_recording_external',
+//                    displayName: 'Outbound call recorded',
+//                    minWidth: '150',
+//                    width: '*'
+//                }, {
+//                    field: 'call_billusec',
+//                    displayName: "Duration HH:MM:SS:ss",
+//                    minWidth: '150',
+//                    width: '*'
+//                }
+//            ],
+//        }
+//        
+//        init();
+//        
+//        function init(){
+//            $scope.loading = true;
+//            
+//            $http({
+//                method: 'GET',
+//                url: 'data.json'
+//            })
+//            .then(function (data) {
+//                $scope.gridOptions02.data = data.data;
+//            })
+//            .finally(function() {$scope.loading = false;})
+//        }
+//        
+//        
+//}]);
 
