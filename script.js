@@ -1,8 +1,9 @@
-angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 'ui.grid.resizeColumns', 'ui.grid.edit'])
+angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 'ui.grid.resizeColumns', 'ui.grid.edit', 'ui.grid.selection'])
     .controller('mainCtrl', ['$scope', '$http', 'uiGridConstants', function ($scope, $http, uiGrigConstants) {
         $scope.gridOptions = {
             paginationPageSizes: [5, 10, 15],
             paginationPageSize: 5,
+            rowHeight: 70,
             useExternalSorting: true,
             showGridFooter: true,
             gridFooterTemplate: 'footerTemplate.html',
@@ -24,7 +25,19 @@ angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 
                     filter: {
                         placeholder: 'Search'
                     }
-        },
+                },
+                {
+                    field: 'Fruits',
+                    dispalyName: 'Fruit',
+                    enableSorting: true,
+                    enableCellEdit: false,
+                    rowHeight: 250,
+                    filter: {
+                        options: [ { value: 'banana', label: 'Banana' }, { value: 'coconut', label: 'Coconut' }, { value: 'peach', label: 'Peach'}]
+                    },
+                    minWidth: '200',
+                    width: '*'
+                },
                 {
                     field: 'email',
                     dispalyName: 'Email',
@@ -37,7 +50,7 @@ angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 
                     },
                     minWidth: '200',
                     width: '*'
-        },
+                },
                 {
                     field: 'body',
                     dispalyName: 'Description',
@@ -48,11 +61,12 @@ angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 
                     filter: {
                         placeholder: 'Search'
                     }
-        },
+                },
                 {
                     field: 'actions',
                     displayName: 'Actions',
                     enableCellEdit: false,
+                    enableColumnMenu: false,
                     width: '400',
                     enableSorting: false,
                     enableFiltering: false,
@@ -91,6 +105,8 @@ angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 
             paginationPageSize: 10,
             useExternalSorting: true,
             enableSorting: true,
+            enableCellEditOnFocus: true,
+            enableColumnMenus: false,
             enableColumnResizing: true,
             onRegisterApi: function (gridApi) {
                 $scope.grid2Api = gridApi;
@@ -115,6 +131,7 @@ angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid', 'ui.grid.pagination', 
                     field: 'call_out_type',
                     displayName: 'Out to',
                     minWidth: '150',
+                    
                     width: '*'
                 }, {
                     field: 'call_caller_id',

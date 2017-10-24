@@ -1,5 +1,9 @@
 /* Styles go here */
 
+body{
+    background-color: #fff;
+}
+
 .myGrid{
     border: none;
     height: 600px;
@@ -47,9 +51,11 @@
 
 /* || Rules for cells and rows ||*/
 
+/*
 .ui-grid-cell, .ui-grid-row {
     height: 50px !important;
 }
+*/
 
 /*Removes border top right, after the last column header*/
 .ui-grid-header-cell:last-child, .ui-grid-column-resizer.right{
@@ -66,8 +72,8 @@
     text-overflow: ellipsis !important;
 }
 
-.ui-grid-cell-contents-input{
-    padding: -10px 10px;
+.ui-grid-cell-contents input{
+    margin-top: -5px;
 }
 
 /*actions column rules*/
